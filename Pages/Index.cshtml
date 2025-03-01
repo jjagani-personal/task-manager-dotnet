@@ -1,0 +1,39 @@
+﻿@page
+@model IndexModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Task Management";
+}
+
+<h1>Task Management</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Due Date</th>
+            <th>Frequency</th>
+            <th>Estimated Hours</th>
+            <th>Preferred Time</th>
+            <th>Preferred Place</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var task in Model.Tasks)
+    {
+        <tr>
+            <td>@task.Name</td>
+            <td>@task.DueDate.ToShortDateString()</td>
+            <td>@task.Frequency</td>
+            <td>@task.EstimatedHours</td>
+            <td>@task.PreferredTime</td>
+            <td>@task.PreferredPlace</td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@task.Id" class="btn btn-primary">Edit</a>
+                <a asp-page="./Delete" asp-route-id="@task.Id" class="btn btn-danger">Delete</a>
+                <a asp-page="./Finish" asp-route-id="@task.Id" class="btn btn-success">Finish</a>
+            </td>
+        </tr>
+    }
+    </tbody>
