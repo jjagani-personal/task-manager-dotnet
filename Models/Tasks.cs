@@ -7,7 +7,8 @@ namespace TaskManager.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public DateTime DueDate { get; set; }
+        public DateTime NextDue { get; set; }
+        public DateTime LastCompleted { get; set; }
         public int Frequency { get; set; }
         public double EstimatedHours { get; set; }
         public DateTime PreferredTime { get; set; }

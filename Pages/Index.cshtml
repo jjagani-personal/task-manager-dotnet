@@ -5,7 +5,7 @@
     ViewData["Title"] = "Task Management";
 }
 
-<h1>yo whats up bro</h1>
+<h1>Task Manager</h1>
 
 <table class="table">
     <thead>
@@ -24,7 +24,8 @@
     {
         <tr>
             <td>@task.Name</td>
-            <td>@task.DueDate.ToShortDateString()</td>
+            <td>@task.NextDue.ToShortDateString()</td>
+            <td>@task.LastCompleted.ToShortDateString()</td>
             <td>@task.Frequency</td>
             <td>@task.EstimatedHours</td>
             <td>@task.PreferredTime</td>
