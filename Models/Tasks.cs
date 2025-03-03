@@ -11,7 +11,7 @@ namespace TaskManager.Models
         public DateTime LastCompleted { get; set; }
         public int Frequency { get; set; }
         public double EstimatedHours { get; set; }
-        public DateTime PreferredTime { get; set; }
+        public string PreferredTime { get; set; }
         public string? PreferredPlace { get; set; }
     }
 

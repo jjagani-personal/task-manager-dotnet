@@ -1,4 +1,5 @@
-@model TaskManager.Models.Task
+@page
+@model CreateModel
 
 @{
     ViewData["Title"] = "Create Task";
@@ -10,41 +11,48 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+                <label asp-for="Task.Name" class="control-label"></label>
+                <input asp-for="Task.Name" class="form-control" />
+                <span asp-validation-for="Task.Name" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Task.NextDue" class="control-label"></label>
+                <input asp-for="Task.NextDue" class="form-control" />
+                <span asp-validation-for="Task.NextDue" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="NextDue" class="control-label"></label>
-                <input asp-for="NextDue" class="form-control" />
-                <span asp-validation-for="NextDue" class="text-danger"></span>
+                <label asp-for="Task.LastCompleted" class="control-label"></label>
+                <input asp-for="Task.LastCompleted" class="form-control"/>
+                <span asp-validation-for="Task.LastCompleted" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="LastCompleted" class="control-label"></label>
-                <input asp-for="LastCompleted" class="form-control" />
-                <span asp-validation-for="LastCompleted" class="text-danger"></span>
+                <label asp-for="Task.Frequency" class="control-label"></label>
+                <input asp-for="Task.Frequency" class="form-control" />
+                <span asp-validation-for="Task.Frequency" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Frequency" class="control-label"></label>
-                <input asp-for="Frequency" class="form-control" />
-                <span asp-validation-for="Frequency" class="text-danger"></span>
+                <label asp-for="Task.EstimatedHours" class="control-label"></label>
+                <input asp-for="Task.EstimatedHours" class="form-control" />
+                <span asp-validation-for="Task.EstimatedHours" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="EstimatedHours" class="control-label"></label>
-                <input asp-for="EstimatedHours" class="form-control" />
-                <span asp-validation-for="EstimatedHours" class="text-danger"></span>
+                <label asp-for="Task.PreferredTime" class="control-label"></label>
+                <select asp-for="Task.PreferredTime" class="form-control">
+                    <option value="Weekday Morning">Weekday Morning</option>
+                    <option value="Weekday Evening">Weekday Evening</option>
+                    <option value="Weekend Morning">Weekend Morning</option>
+                    <option value="Weekend Evening">Weekend Evening</option>
+                </select>
+                <span asp-validation-for="Task.PreferredTime" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PreferredTime" class="control-label"></label>
-                <input asp-for="PreferredTime" class="form-control" />
-                <span asp-validation-for="PreferredTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PreferredPlace" class="control-label"></label>
-                <input asp-for="PreferredPlace" class="form-control" />
-                <span asp-validation-for="PreferredPlace" class="text-danger"></span>
+                <label asp-for="Task.PreferredPlace" class="control-label"></label>
+                <input asp-for="Task.PreferredPlace" class="form-control" />
+                <span asp-validation-for="Task.PreferredPlace" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -54,7 +62,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-page="./Index">Back to List</a>
 </div>
 
 @section Scripts {
